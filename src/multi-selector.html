@@ -1,0 +1,15 @@
+<div class="bs-multi-selector">
+	<input type="input" class="bs-multi-selector__hidden-input" ng-focus="displayDialog()">
+	<div ng-click="displayDialog()" type="text" class="bs-multi-selector__main-input form-control">
+		<div class="bs-multi-selector__pill bss-gray-5 bss-bg-gray-10" ng-repeat="item in selectedItems">
+			{{item.first_name}} {{item.last_name}} <i ng-click="removeItem(item)" class="bs-icon bs-icon-Close bss-medium-gray"></i>
+		</div>
+	</div>
+</div>
+<div class="bs-multi-selector__dialog depth-z2" ng-show="showDialog">
+	<input type="text" ng-keydown="keyDown($event)" class="form-control bs-multi-selector__dialog__input" ng-model="userInput" placeholder="{{placeholder}}"/>
+	<div class="bs-multi-selector__dialog__items">
+		<bs-multi-selector-item ng-class="{'+selected': isSelected(item), '+highlighted': ($index === highlightedIndex) }" ng-click="selectItem(item)" ng-repeat="item in filteredItems = (source | filter:userInput)" template="itemTemplate">
+		</bs-multi-selector-item>
+	</div>
+</div>

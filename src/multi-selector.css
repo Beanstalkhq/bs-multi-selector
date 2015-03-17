@@ -1,0 +1,99 @@
+bs-multi-selector {
+	display: inline-block;
+	position: relative;
+	font-size: 1.4rem;
+}
+
+.bs-multi-selector {
+	width: 340px;
+	z-index: 1;
+}
+
+.bs-multi-selector__hidden-input {
+	position: absolute;
+}
+
+.bs-multi-selector__dialog {
+	background: white;
+	padding: 16px 16px 8px 16px;
+	position: fixed;
+	top: 33px;
+	min-width: 298px;
+	width: auto;
+	border-radius: 2px;
+}
+
+.bs-multi-selector__dialog__items {
+	margin: 16px -16px 8px -16px;
+}
+
+bs-multi-selector-item {
+	display: block;
+	height: 40px;
+	position: relative;
+	padding-top: 6px;
+	cursor: pointer;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+bs-multi-selector-item:hover, bs-multi-selector-item.\+highlighted {
+	background-color: #F7F7F7;
+}
+
+bs-multi-selector-item.\+selected .bs-multi-selector-item__icon {
+	background-color: #45A8F8!important;
+}
+
+bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
+	visibility: visible;
+}
+
+.bs-multi-selector-item__icon {
+	display:inline-block;
+	vertical-align: middle;
+	height: 28px;
+	width: 28px;
+	text-align: center;
+	font-weight: 600;
+	padding-top: .6rem;
+	border-radius: 2px;
+}
+
+.bs-multi-selector-item__title {
+	display:inline-block;
+	position: absolute;
+	left: 56px;
+	top: 12px;
+}
+
+.bs-multi-selector-item__check {
+	display:inline-block;
+	visibility: hidden;
+	float:right;
+	font-size: 2.6rem;
+	position: relative;
+	right: .2rem;
+}
+
+.bs-multi-selector__main-input.form-control {
+	position: relative;
+	z-index: 2;
+	padding: 2px 2px 0 2px;
+	min-height: 32px;
+	height: auto;
+}
+
+.bs-multi-selector__pill {
+	display: inline-block;
+	padding: 2px 8px;
+	margin-right: 5px;
+	height: 25px;
+	margin-bottom: 3px;
+}
+
+.bs-multi-selector__pill .bs-icon {
+	position: relative;
+	top: 1px;
+	cursor: pointer;
+}
