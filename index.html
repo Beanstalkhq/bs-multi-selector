@@ -33,6 +33,12 @@ just for immediate execution, without reporting to Karma server.
 					<label>Assigned to</label>
 					<bs-multi-selector source="source" selected-items="selectedItems" placeholder="Type a collaborators name..."></bs-multi-selector>
 				</div>
+				<div>
+					<div class="bs-subheader">Selected people</div>
+					<ul>
+						<li ng-repeat="item in selectedItems">{{item.first_name}} {{item.last_name}}</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
