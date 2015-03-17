@@ -101,6 +101,8 @@ angular.module('bs-multi-selector')
 						if(!_.isNull(scope.highlightedIndex)) {
 							scope.selectItem(scope.filteredItems[scope.highlightedIndex]);
 						}
+					} else if(keycode === 27) { // press escape key
+						scope.showDialog = false;
 					}
 				}
 
