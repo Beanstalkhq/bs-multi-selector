@@ -86,7 +86,7 @@ bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
 
 .bs-multi-selector__pill {
 	display: inline-block;
-	padding: 4px 8px;
+	padding: 2px 8px;
 	margin-right: 5px;
 	height: 25px;
 	margin-bottom: 3px;
@@ -100,7 +100,8 @@ bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
 
 .bs-multi-selector__pill .bss-icon {
 	position: relative;
-	top: -4px;
+	top: -2px;
+	right: -4px;
 	cursor: pointer;
 }
 

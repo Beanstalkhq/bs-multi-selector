@@ -5,7 +5,7 @@ var defaultItemTemplate = require('./default-item-template.html');
 require('./multi-selector.css');
 
 angular.module('bs-multi-selector')
-	.directive('bsMultiSelector', function($sce, $timeout) {
+	.directive('bsMultiSelector', [ '$timeout', function($timeout) {
 		return {
 			restrict: "E",
 
@@ -23,6 +23,7 @@ angular.module('bs-multi-selector')
 			link: function(scope, el, attr) {
 				var isSingle = _.has(attr, 'single');
 				var id = _.uniqueId(); // This is a unique id associated with this component instance and used to namespace dom events.
+				scope.dialogStyle = {};
 
 				scope.showDialog = false;
 				scope.highlightedIndex = null;
@@ -59,10 +60,9 @@ angular.module('bs-multi-selector')
 				 * items the size of the primary input may change.
 				 */
 				scope.selectItem = function(item) {
-					scope.onChange();
-
 					if(isSingle) {
 						scope.selectedItems = [item];
+						triggerChange();
 						return scope.showDialog = false;
 					}
 
@@ -76,11 +76,13 @@ angular.module('bs-multi-selector')
 						}
 					}
 					positionDialog();
+
+					triggerChange();
 				}
 
 				scope.removeItem = function(item) {
-					scope.onChange();
 					scope.selectedItems = _.without(scope.selectedItems, item);
+					triggerChange();
 				}
 
 				scope.isSelected = function(item) {
@@ -122,14 +124,19 @@ angular.module('bs-multi-selector')
 				 * grow vertically based upon the quantity of pills within it.
 				 */
 				function positionDialog() {
-					setTimeout(function() {
-						var height = el.height();
-						el.find('.bs-multi-selector__dialog').css(
-							{
-								top: height + 1 + 'px'
-							}
-						);
-					},100);
+					var position = el.position();
+					var windowWidth = $(window).width();
+
+					if(position.left + 298 >= windowWidth) {
+						scope.dialogStyle.right = 0;
+					}
+
+					$timeout(function() {
+						scope.$apply(function() {
+							var height = el.height();
+							scope.dialogStyle.top = height + 1 + 'px';
+						});
+					}, 100, false);
 				}
 
 				/**
@@ -148,9 +155,18 @@ angular.module('bs-multi-selector')
 				scope.$on('$destroy', function() {
 					$('body').off('click.bsmultiselector' + id);
 				});
+
+				/** Trigger the on change handler **/
+				function triggerChange() {
+					$timeout(function() {
+						scope.$apply(function() {
+							scope.onChange();
+						});
+					}, null, false);
+				}
 			}
 		}
-	});
+	}]);
 
 
 /**
@@ -161,7 +177,7 @@ angular.module('bs-multi-selector')
  * "people" is included.
  */
 angular.module('bs-multi-selector')
-	.directive('bsMultiSelectorItem', function($compile) {
+	.directive('bsMultiSelectorItem', [ '$compile', function($compile) {
 		return {
 			restrict: "E",
 
@@ -180,4 +196,4 @@ angular.module('bs-multi-selector')
 				});
 			}
 		}
-	});
+	}]);
