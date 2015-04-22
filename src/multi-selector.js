@@ -13,12 +13,15 @@ angular.module('bs-multi-selector')
 				source: '=',
 				selectedItems: '=',
 				template: "=",
-				placeholder: '@'
+				placeholder: '@',
+				onChange: "&",
+				icon: "@"
 			},
 
 			template: template,
 
 			link: function(scope, el, attr) {
+				var isSingle = _.has(attr, 'single');
 				var id = _.uniqueId(); // This is a unique id associated with this component instance and used to namespace dom events.
 
 				scope.showDialog = false;
@@ -56,6 +59,13 @@ angular.module('bs-multi-selector')
 				 * items the size of the primary input may change.
 				 */
 				scope.selectItem = function(item) {
+					scope.onChange();
+
+					if(isSingle) {
+						scope.selectedItems = [item];
+						return scope.showDialog = false;
+					}
+
 					if(_.find(scope.selectedItems, item)) {
 						scope.removeItem(item);
 					} else {
@@ -69,6 +79,7 @@ angular.module('bs-multi-selector')
 				}
 
 				scope.removeItem = function(item) {
+					scope.onChange();
 					scope.selectedItems = _.without(scope.selectedItems, item);
 				}
 

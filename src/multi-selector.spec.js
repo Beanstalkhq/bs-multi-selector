@@ -5,8 +5,8 @@ describe('multi-selector', function() {
 
 	beforeEach(inject(function($rootScope, $compile, $filter) {
 		elm = angular.element(
-			'<div>' +
-				'<bs-multi-selector source="source" selected-items="selectedItems" template="template" placeholder="Type a collaborators name...">test</bs-multi-selector>' +
+			'<div style="position: relative;">' +
+				'<bs-multi-selector single icon="bss-icon-filter" source="source" selected-items="selectedItems" template="template" placeholder="Type a collaborators name...">test</bs-multi-selector>' +
 			'</div>'
 		);
 
