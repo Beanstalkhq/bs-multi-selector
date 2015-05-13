@@ -20,7 +20,7 @@
 <div class="bs-multi-selector__dialog depth-z2" ng-show="showDialog" ng-style="dialogStyle">
 	<input type="text" ng-keydown="keyDown($event)" class="bss-form-control bs-multi-selector__dialog__input" ng-model="userInput" placeholder="{{placeholder}}"/>
 	<div class="bs-multi-selector__dialog__items">
-		<bs-multi-selector-item ng-class="{'+selected': isSelected(item), '+highlighted': ($index === highlightedIndex) }" ng-click="selectItem(item)" ng-repeat="item in filteredItems = (source | limitTo:4 | filter:userInput)" template="itemTemplate">
+		<bs-multi-selector-item ng-class="{'+selected': isSelected(item), '+highlighted': ($index === highlightedIndex) }" ng-click="selectItem(item)" ng-repeat="item in filteredItems = (source | filter:userInput | limitTo:4)" template="itemTemplate">
 		</bs-multi-selector-item>
 	</div>
 </div>
