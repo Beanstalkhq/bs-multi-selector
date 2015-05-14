@@ -30,10 +30,10 @@ just for immediate execution, without reporting to Karma server.
 			</div>
 			<div class="bss-card__body" ng-controller="testController">
 				<div class="form-group">
-					<label>Assigned to</label>
+					<label style="vertical-align: middle;">Assigned to</label>
 					<bs-multi-selector source="source" selected-items="selectedItems" placeholder="Type a collaborators name..."></bs-multi-selector>
 				</div>
-				<div>
+				<div class="bss-margin-top-8">
 					<div class="bs-subheader">Selected people</div>
 					<ul>
 						<li ng-repeat="item in selectedItems">{{item.first_name}} {{item.last_name}}</li>
