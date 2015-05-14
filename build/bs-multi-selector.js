@@ -3,7 +3,7 @@
  * author: Bret Little
  * copyright: 2015
  * license: MIT
- * version: 1.0.0
+ * version: 1.1.2
  */
 /******/
 (function (modules) {
@@ -13,18 +13,15 @@
   /******/
   var installedModules = {};
   /******/
-  /******/
   // The require function
   /******/
   function __webpack_require__(moduleId) {
-    /******/
     /******/
     // Check if module is in cache
     /******/
     if (installedModules[moduleId])
       /******/
       return installedModules[moduleId].exports;
-    /******/
     /******/
     // Create a new module (and put it into the cache)
     /******/
@@ -34,38 +31,30 @@
         loaded: false
       };
     /******/
-    /******/
     // Execute the module function
     /******/
     modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
     /******/
-    /******/
     // Flag the module as loaded
     /******/
     module.loaded = true;
-    /******/
     /******/
     // Return the exports of the module
     /******/
     return module.exports;  /******/
   }
   /******/
-  /******/
-  /******/
   // expose the modules object (__webpack_modules__)
   /******/
   __webpack_require__.m = modules;
-  /******/
   /******/
   // expose the module cache
   /******/
   __webpack_require__.c = installedModules;
   /******/
-  /******/
   // __webpack_public_path__
   /******/
   __webpack_require__.p = '';
-  /******/
   /******/
   // Load entry module and return exports
   /******/
@@ -267,8 +256,8 @@
     // Hot Module Replacement
     if (false) {
       // When the styles change, update the <style> tags
-      module.hot.accept('!!/home/blittle/dev/bs-multi-selector/node_modules/css-loader/index.js!/home/blittle/dev/bs-multi-selector/node_modules/autoprefixer-loader/index.js!/home/blittle/dev/bs-multi-selector/src/multi-selector.css', function () {
-        var newContent = require('!!/home/blittle/dev/bs-multi-selector/node_modules/css-loader/index.js!/home/blittle/dev/bs-multi-selector/node_modules/autoprefixer-loader/index.js!/home/blittle/dev/bs-multi-selector/src/multi-selector.css');
+      module.hot.accept('!!/home/blittle/local/dev/bs-multi-selector/node_modules/css-loader/index.js!/home/blittle/local/dev/bs-multi-selector/node_modules/autoprefixer-loader/index.js!/home/blittle/local/dev/bs-multi-selector/src/multi-selector.css', function () {
+        var newContent = require('!!/home/blittle/local/dev/bs-multi-selector/node_modules/css-loader/index.js!/home/blittle/local/dev/bs-multi-selector/node_modules/autoprefixer-loader/index.js!/home/blittle/local/dev/bs-multi-selector/src/multi-selector.css');
         if (typeof newContent === 'string')
           newContent = [[
               module.id,
