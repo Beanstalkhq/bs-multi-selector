@@ -3,14 +3,14 @@
 	<input type="input" class="bs-multi-selector__hidden-input" ng-focus="displayDialog()">
 	<div ng-click="displayDialog()" type="text" class="bs-multi-selector__main-input bss-form-control">
 		<div class="bs-multi-selector__pill bss-white bss-bg-gray-10" ng-repeat="item in selectedItems">
-			{{item.first_name}} {{item.last_name}} <i ng-click="removeItem(item)" class="bss-icon bss-icon-sm-close"></i>
+			{{item.first_name}} {{item.last_name}}<i ng-click="removeItem(item)" class="bss-icon bss-icon-sm-close"></i>
 		</div>
 	</div>
 </div>
 <!-- icon mode  -->
 <div ng-if="icon" class="bs-multi-selector__icon">
 	<div class="bs-multi-selector__pill +inline bss-white bss-bg-gray-10" ng-repeat="item in selectedItems">
-		{{item.first_name}} {{item.last_name}} <i ng-click="removeItem(item)" class="bss-icon bss-icon-sm-close"></i>
+		<span style="vertical-align: top">{{item.first_name}} {{item.last_name}}</span> <i ng-click="removeItem(item)" class="bss-icon bss-icon-sm-close"></i>
 	</div>
 	<div class="bss-btn-icon" ng-click="displayDialog()">
 		<a href class="bss-link"><span class="bss-icon {{icon}}"></span></a>
