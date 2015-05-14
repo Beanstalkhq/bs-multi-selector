@@ -1,15 +1,26 @@
-<div class="bs-multi-selector">
+<!-- input mode  -->
+<div class="bs-multi-selector" ng-if="!icon">
 	<input type="input" class="bs-multi-selector__hidden-input" ng-focus="displayDialog()">
-	<div ng-click="displayDialog()" type="text" class="bs-multi-selector__main-input form-control">
-		<div class="bs-multi-selector__pill bss-gray-5 bss-bg-gray-10" ng-repeat="item in selectedItems">
-			{{item.first_name}} {{item.last_name}} <i ng-click="removeItem(item)" class="bs-icon bs-icon-Close bss-medium-gray"></i>
+	<div ng-click="displayDialog()" type="text" class="bs-multi-selector__main-input bss-form-control">
+		<div class="bs-multi-selector__pill bss-white bss-bg-gray-10" ng-repeat="item in selectedItems">
+			{{item.first_name}} {{item.last_name}}<i ng-click="removeItem(item)" class="bss-icon bss-icon-sm-close"></i>
 		</div>
 	</div>
 </div>
-<div class="bs-multi-selector__dialog depth-z2" ng-show="showDialog">
-	<input type="text" ng-keydown="keyDown($event)" class="form-control bs-multi-selector__dialog__input" ng-model="userInput" placeholder="{{placeholder}}"/>
+<!-- icon mode  -->
+<div ng-if="icon" class="bs-multi-selector__icon">
+	<div class="bs-multi-selector__pill +inline bss-white bss-bg-gray-10" ng-repeat="item in selectedItems">
+		<span style="vertical-align: top">{{item.first_name}} {{item.last_name}}</span> <i ng-click="removeItem(item)" class="bss-icon bss-icon-sm-close"></i>
+	</div>
+	<div class="bss-btn-icon" ng-click="displayDialog()">
+		<a href class="bss-link"><span class="bss-icon {{icon}}"></span></a>
+	</div>
+</div>
+<!-- select dialog  -->
+<div class="bs-multi-selector__dialog depth-z2" ng-show="showDialog" ng-style="dialogStyle">
+	<input type="text" ng-keydown="keyDown($event)" class="bss-form-control bs-multi-selector__dialog__input" ng-model="userInput" placeholder="{{placeholder}}"/>
 	<div class="bs-multi-selector__dialog__items">
-		<bs-multi-selector-item ng-class="{'+selected': isSelected(item), '+highlighted': ($index === highlightedIndex) }" ng-click="selectItem(item)" ng-repeat="item in filteredItems = (source | limitTo:4 | filter:userInput)" template="itemTemplate">
+		<bs-multi-selector-item ng-class="{'+selected': isSelected(item), '+highlighted': ($index === highlightedIndex) }" ng-click="selectItem(item)" ng-repeat="item in filteredItems = (source | filter:userInput | limitTo:4)" template="itemTemplate">
 		</bs-multi-selector-item>
 	</div>
 </div>

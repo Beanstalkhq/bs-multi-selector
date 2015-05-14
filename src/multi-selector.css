@@ -76,7 +76,7 @@ bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
 	right: .2rem;
 }
 
-.bs-multi-selector__main-input.form-control {
+.bs-multi-selector__main-input.bss-form-control {
 	position: relative;
 	z-index: 2;
 	padding: 2px 2px 0 2px;
@@ -90,10 +90,21 @@ bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
 	margin-right: 5px;
 	height: 25px;
 	margin-bottom: 3px;
+	vertical-align: top;
 }
 
-.bs-multi-selector__pill .bs-icon {
+.bs-multi-selector__pill.\+inline {
 	position: relative;
-	top: 1px;
+	top: 3px;
+}
+
+.bs-multi-selector__pill .bss-icon {
+	position: relative;
+	top: -2px;
+	right: -4px;
 	cursor: pointer;
+}
+
+.bs-multi-selector__icon {
+	position: relative;
 }
