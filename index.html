@@ -15,36 +15,35 @@ just for immediate execution, without reporting to Karma server.
 </head>
 
 <body ng-app="app">
-	<div class="bss-topnav" ng-app>
-		<div class="bss-topnav__bar"></div>
-		<div class="bss-topnav__content" data-reactid=".0.0.1"><span class="bss-topnav__content__brand" data-reactid=".0.0.1.0"><img src="logo.png" alt="Company Logo" data-reactid=".0.0.1.0.0"></span>
-			<ul class="bss-topnav__content__menu">
-				<li><a href="https://github.com/Beanstalkhq/bs-multi-selector">Beanstalk Multi-selector on Github</a></li>
+	<div class="cps-topnav" ng-app>
+		<div class="cps-topnav__bar"></div>
+		<div class="cps-topnav__content" data-reactid=".0.0.1"><span class="cps-topnav__content__brand" data-reactid=".0.0.1.0"><img src="logo.png" alt="Company Logo" data-reactid=".0.0.1.0.0"></span>
+			<ul class="cps-topnav__content__menu">
+				<li><a href="https://github.com/canopytax/cp-multi-selector">Canopy Multi-selector on Github</a></li>
 			</ul>
 		</div>
 	</div>
-	<div class="bss-nav-content +full">
-		<div class="bss-fixed-focus bss-card">
-			<div class="bss-card__header bss-subheader">
-				Beanstalk Multi-Selector
+	<div class="cps-nav-content +full">
+		<div class="cps-fixed-focus cps-card">
+			<div class="cps-card__header cps-subheader">
+				Canopy Multi-Selector
 			</div>
-			<div class="bss-card__body" ng-controller="testController">
+			<div class="cps-card__body" ng-controller="testController">
 				<div class="form-group">
 					<label>Assigned to</label>
-					<bs-multi-selector source="source" selected-items="selectedItems" placeholder="Type a collaborators name..."></bs-multi-selector>
+					<cp-multi-selector source="source" selected-items="selectedItems" placeholder="Type a collaborators name..."></cp-multi-selector>
 				</div>
 			</div>
 		</div>
 	</div>
-	<link type="text/css" href="node_modules/bs-styleguide/index.css" rel="stylesheet">
-	<link type="text/css" href="https://s3.amazonaws.com/icomoon.io/57942/BeanstalkIcons/style.css" rel="stylesheet">
+	<link type="text/css" href="node_modules/cp-styleguide/index.css" rel="stylesheet">
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="node_modules/angular/angular.js"></script>
 	<script type="text/javascript" src="node_modules/lodash/index.js"></script>
 	<script type="text/javascript" src="node_modules/angular-mocks/angular-mocks.js"></script>
-	<script type="text/javascript" src="build/bs-multi-selector.js"></script>
+	<script type="text/javascript" src="build/cp-multi-selector.js"></script>
 	<script>
-		angular.module('app', ['bs-multi-selector'])
+		angular.module('app', ['cp-multi-selector'])
 			.controller('testController', function($scope) {
 				$scope.source = [
 					{

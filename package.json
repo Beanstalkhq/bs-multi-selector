@@ -1,22 +1,22 @@
 {
-  "name": "bs-multi-selector",
+  "name": "cp-multi-selector",
   "version": "1.1.3",
   "description": "Component Description",
-  "main": "build/bs-multi-selector.js",
+  "main": "build/cp-multi-selector.js",
   "scripts": {
     "test": "node node_modules/karma/bin/karma start",
     "build": "webpack --optimize-minimize"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Beanstalkhq/bs-autoscale-input.git"
+    "url": "https://github.com/canopytax/cp-multi-selector.git"
   },
   "author": "Bret Little",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Beanstalkhq/bs-autoscale-input/issues"
+    "url": "https://github.com/canopytax/cp-multi-selector/issues"
   },
-  "homepage": "https://github.com/Beanstalkhq/bs-autoscale-input",
+  "homepage": "https://github.com/canopytax/cp-multi-selector",
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",
     "babel-core": "^4.7.13",
@@ -37,7 +37,9 @@
   "dependencies": {
     "angular": "^1.3.15",
     "angular-mocks": "^1.3.15",
-    "bs-styleguide": "^1.1.1",
     "jquery": "^2.1.3"
-  }
+  },
+	"optionalDependencies": {
+    "canopy-styleguide": "^1.1.0"
+	}
 }

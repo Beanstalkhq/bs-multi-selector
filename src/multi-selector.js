@@ -4,8 +4,8 @@ var template = require('./multi-selector.html');
 var defaultItemTemplate = require('./default-item-template.html');
 require('./multi-selector.css');
 
-angular.module('bs-multi-selector')
-	.directive('bsMultiSelector', [ '$timeout', function($timeout) {
+angular.module('cp-multi-selector')
+	.directive('cpMultiSelector', [ '$timeout', function($timeout) {
 		return {
 			restrict: "E",
 
@@ -35,7 +35,7 @@ angular.module('bs-multi-selector')
 					scope.showDialog = true;
 					// At the end of a timeout focus the input inside the dialog
 					setTimeout(function() {
-						el.find('.bs-multi-selector__dialog__input').focus();
+						el.find('.cp-multi-selector__dialog__input').focus();
 					}, 100);
 
 					positionDialog();
@@ -143,7 +143,7 @@ angular.module('bs-multi-selector')
 				 * Setup jquery event listener on the body to know when to close the dialog.
 				 * This event is name spaced so that we can correctly clean it up.
 				 */
-				$('body').on('click.bsmultiselector' + id, function(e) {
+				$('body').on('click.cpmultiselector' + id, function(e) {
 					if(!$(e.target).closest(el).length) {
 						scope.$apply(function() {
 							scope.showDialog = false;
@@ -153,7 +153,7 @@ angular.module('bs-multi-selector')
 
 				/** When the directive is removed, cleanup jquery events  **/
 				scope.$on('$destroy', function() {
-					$('body').off('click.bsmultiselector' + id);
+					$('body').off('click.cpmultiselector' + id);
 				});
 
 				/** Trigger the on change handler **/
@@ -176,8 +176,8 @@ angular.module('bs-multi-selector')
  * This allows the user to define a custom template. By default a template for selecting
  * "people" is included.
  */
-angular.module('bs-multi-selector')
-	.directive('bsMultiSelectorItem', [ '$compile', function($compile) {
+angular.module('cp-multi-selector')
+	.directive('cpMultiSelectorItem', [ '$compile', function($compile) {
 		return {
 			restrict: "E",
 

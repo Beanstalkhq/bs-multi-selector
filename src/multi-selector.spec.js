@@ -1,12 +1,12 @@
 describe('multi-selector', function() {
 	var elm, scope, input;
 
-	beforeEach(module('bs-multi-selector'));
+	beforeEach(module('cp-multi-selector'));
 
 	beforeEach(inject(function($rootScope, $compile, $filter) {
 		elm = angular.element(
 			'<div style="position: relative;">' +
-				'<bs-multi-selector single icon="bss-icon-filter" source="source" selected-items="selectedItems" template="template" placeholder="Type a collaborators name...">test</bs-multi-selector>' +
+				'<cp-multi-selector single icon="cps-icon-filter" source="source" selected-items="selectedItems" template="template" placeholder="Type a collaborators name...">test</cp-multi-selector>' +
 			'</div>'
 		);
 
@@ -33,8 +33,6 @@ describe('multi-selector', function() {
 		scope.selectedItems = [];
 
 		$compile(elm)(scope);
-		scope.$digest();
-		scope.$digest();
 		scope.$digest();
 	}));
 

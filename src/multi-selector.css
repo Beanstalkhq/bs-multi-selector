@@ -1,19 +1,19 @@
-bs-multi-selector {
+cp-multi-selector {
 	display: inline-block;
 	position: relative;
 	font-size: 1.4rem;
 }
 
-.bs-multi-selector {
+.cp-multi-selector {
 	width: 340px;
 	z-index: 1;
 }
 
-.bs-multi-selector__hidden-input {
+.cp-multi-selector__hidden-input {
 	position: absolute;
 }
 
-.bs-multi-selector__dialog {
+.cp-multi-selector__dialog {
 	background: white;
 	padding: 16px 16px 8px 16px;
 	position: absolute;
@@ -23,11 +23,11 @@ bs-multi-selector {
 	border-radius: 2px;
 }
 
-.bs-multi-selector__dialog__items {
+.cp-multi-selector__dialog__items {
 	margin: 16px -16px 8px -16px;
 }
 
-bs-multi-selector-item {
+cp-multi-selector-item {
 	display: block;
 	height: 40px;
 	position: relative;
@@ -37,19 +37,19 @@ bs-multi-selector-item {
 	padding-right: 16px;
 }
 
-bs-multi-selector-item:hover, bs-multi-selector-item.\+highlighted {
+cp-multi-selector-item:hover, cp-multi-selector-item.\+highlighted {
 	background-color: #F7F7F7;
 }
 
-bs-multi-selector-item.\+selected .bs-multi-selector-item__icon {
+cp-multi-selector-item.\+selected .cp-multi-selector-item__icon {
 	background-color: #45A8F8!important;
 }
 
-bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
+cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 	visibility: visible;
 }
 
-.bs-multi-selector-item__icon {
+.cp-multi-selector-item__icon {
 	display:inline-block;
 	vertical-align: middle;
 	height: 28px;
@@ -60,14 +60,14 @@ bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
 	border-radius: 2px;
 }
 
-.bs-multi-selector-item__title {
+.cp-multi-selector-item__title {
 	display:inline-block;
 	position: absolute;
 	left: 56px;
 	top: 12px;
 }
 
-.bs-multi-selector-item__check {
+.cp-multi-selector-item__check {
 	display:inline-block;
 	visibility: hidden;
 	float:right;
@@ -76,7 +76,7 @@ bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
 	right: .2rem;
 }
 
-.bs-multi-selector__main-input.bss-form-control {
+.cp-multi-selector__main-input.cps-form-control {
 	position: relative;
 	z-index: 2;
 	padding: 2px 2px 0 2px;
@@ -84,7 +84,7 @@ bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
 	height: auto;
 }
 
-.bs-multi-selector__pill {
+.cp-multi-selector__pill {
 	display: inline-block;
 	padding: 2px 8px;
 	margin-right: 5px;
@@ -93,18 +93,18 @@ bs-multi-selector-item.\+selected .bs-multi-selector-item__check {
 	vertical-align: top;
 }
 
-.bs-multi-selector__pill.\+inline {
+.cp-multi-selector__pill.\+inline {
 	position: relative;
 	top: 3px;
 }
 
-.bs-multi-selector__pill .bss-icon {
+.cp-multi-selector__pill .cps-icon {
 	position: relative;
 	top: -2px;
 	right: -4px;
 	cursor: pointer;
 }
 
-.bs-multi-selector__icon {
+.cp-multi-selector__icon {
 	position: relative;
 }

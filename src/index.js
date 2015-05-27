@@ -1,6 +1,6 @@
 var jquery = require('jquery');
 var angular = require('angular');
 
-angular.module('bs-multi-selector', []);
+angular.module('cp-multi-selector', []);
 
 require('./multi-selector.js');

@@ -1,8 +1,8 @@
 var template = require('./multi-selector.html');
 require('./multi-selector.css');
 
-angular.module('bs-multi-selector')
-	.directive('bsMultiSelectorDialog', function() {
+angular.module('cp-multi-selector')
+	.directive('cpMultiSelectorDialog', function() {
 		return {
 			restrict: "E",
 			transclude: true,
