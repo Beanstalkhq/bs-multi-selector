@@ -5,7 +5,7 @@ var defaultItemTemplate = require('./default-item-template.html');
 require('./multi-selector.css');
 
 angular.module('cp-multi-selector')
-	.directive('cpMultiSelector', [ '$timeout', function($timeout) {
+	.directive('cpMultiSelector', [ '$timeout', '$compile', function($timeout, $compile) {
 		return {
 			restrict: "E",
 
@@ -15,7 +15,8 @@ angular.module('cp-multi-selector')
 				template: "=",
 				placeholder: '@',
 				onChange: "&",
-				icon: "@"
+				icon: "@",
+				footerAction: "="
 			},
 
 			template: template,
@@ -37,6 +38,11 @@ angular.module('cp-multi-selector')
 					setTimeout(function() {
 						el.find('.cp-multi-selector__dialog__input').focus();
 					}, 100);
+
+					if(scope.footerAction) {
+						el.find("cp-multi-selector__footer").html(scope.footerAction);
+						$compile(el.find("cp-multi-selector__footer").contents())(scope);
+					}
 
 					positionDialog();
 				}
@@ -127,6 +133,9 @@ angular.module('cp-multi-selector')
 					var position = el.position();
 					var windowWidth = $(window).width();
 
+					debugger;
+					console.log(position.left);
+					console.log(windowWidth);
 					if(position.left + 298 >= windowWidth) {
 						scope.dialogStyle.right = 0;
 					}
