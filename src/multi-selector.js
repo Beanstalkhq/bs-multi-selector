@@ -16,8 +16,9 @@ angular.module('cp-multi-selector')
 				placeholder: '@',
 				onChange: "&",
 				icon: "@",
+				dontShowPill: "@",
 				footerAction: "=",
-				removable: '='
+				removable: '@'
 			},
 
 			template: template,
