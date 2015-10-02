@@ -56,8 +56,12 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 	width: 28px;
 	text-align: center;
 	font-weight: 600;
-	padding-top: .6rem;
+	padding-top: .4rem;
 	border-radius: 2px;
+}
+
+.cp-multi-selector-item__icon * {
+	opacity: .75;
 }
 
 .cp-multi-selector-item__title {

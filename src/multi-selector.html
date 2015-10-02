@@ -13,7 +13,10 @@
 		<span style="vertical-align: top">{{item.first_name}} {{item.last_name}}</span> <i ng-click="removeItem(item)" class="cps-icon cps-icon-sm-close"></i>
 	</div>
 	<div class="cps-btn-icon" ng-click="displayDialog()">
-		<a href class="cps-link"><span class="cps-icon {{icon}}"></span></a>
+		<a href class="cps-link">
+			<span ng-if="!customIconTemplate" class="cps-icon {{icon}}"></span>
+			<div class="cp-multi-selector__custom__icon__template"></div>
+		</a>
 	</div>
 </div>
 <!-- select dialog  -->

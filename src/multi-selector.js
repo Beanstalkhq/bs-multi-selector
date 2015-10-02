@@ -16,6 +16,7 @@ angular.module('cp-multi-selector')
 				placeholder: '@',
 				onChange: "&",
 				icon: "@",
+				customIconTemplate: '=',
 				dontShowPill: "@",
 				footerAction: "=",
 				removable: '@'
@@ -31,10 +32,23 @@ angular.module('cp-multi-selector')
 				scope.showDialog = false;
 				scope.highlightedIndex = null;
 
+				$timeout(renderCustomIconTemplate, 200);
+
+				scope.$watch('customIconTemplate', renderCustomIconTemplate);
+
+				function renderCustomIconTemplate() {
+					if (scope.customIconTemplate) {
+						let customIconHtml = $compile(scope.customIconTemplate)(scope.$parent);
+						el.find(".cp-multi-selector__custom__icon__template").html(customIconHtml);
+						$compile(el.find('.cp-multi-selector__custom__icon__template').contents())(scope);
+					}
+				}
+
 				/**
 				 * Display the dialog. This is called when the main input is focused or clicked.
 				 */
 				scope.displayDialog = function() {
+
 					scope.showDialog = true;
 					// At the end of a timeout focus the input inside the dialog
 					setTimeout(function() {
