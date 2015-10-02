@@ -130,13 +130,10 @@ angular.module('cp-multi-selector')
 				 * grow vertically based upon the quantity of pills within it.
 				 */
 				function positionDialog() {
-					var position = el.position();
-					var windowWidth = $(window).width();
+					let positionLeft = el[0].getBoundingClientRect().left;
+					let windowWidth = $(window).width()
 
-					debugger;
-					console.log(position.left);
-					console.log(windowWidth);
-					if(position.left + 298 >= windowWidth) {
+					if(positionLeft + 298 >= windowWidth) {
 						scope.dialogStyle.right = 0;
 					}
 
