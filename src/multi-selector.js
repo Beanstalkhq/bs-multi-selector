@@ -40,7 +40,8 @@ angular.module('cp-multi-selector')
 					}, 100);
 
 					if(scope.footerAction) {
-						el.find("cp-multi-selector__footer").html(scope.footerAction);
+						let footerHtml = $compile(scope.footerAction)(scope.$parent);
+						el.find(".cp-multi-selector__footer").html(footerHtml);
 						$compile(el.find("cp-multi-selector__footer").contents())(scope);
 					}
 

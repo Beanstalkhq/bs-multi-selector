@@ -23,8 +23,5 @@
 		<cp-multi-selector-item ng-class="{'+selected': isSelected(item), '+highlighted': ($index === highlightedIndex) }" ng-click="selectItem(item)" ng-repeat="item in filteredItems = (source | filter:userInput | limitTo:4)" template="itemTemplate">
 		</cp-multi-selector-item>
 	</div>
-</div>
-
-<div class="cp-multi-selector__footer">
-
+	<div class="cp-multi-selector__footer"></div>
 </div>
