@@ -41,6 +41,8 @@ angular.module('cp-multi-selector')
 						let customIconHtml = $compile(scope.customIconTemplate)(scope.$parent);
 						el.find(".cp-multi-selector__custom__icon__template").html(customIconHtml);
 						$compile(el.find('.cp-multi-selector__custom__icon__template').contents())(scope);
+					} else {
+						el.find('.cp-multi-selector__custom__icon__template').html('');
 					}
 				}
 
