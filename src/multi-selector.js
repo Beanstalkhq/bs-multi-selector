@@ -5,7 +5,7 @@ var defaultItemTemplate = require('./default-item-template.html');
 require('./multi-selector.css');
 
 angular.module('cp-multi-selector')
-	.directive('cpMultiSelector', [ '$timeout', function($timeout) {
+	.directive('cpMultiSelector', [ '$timeout', '$compile', function($timeout, $compile) {
 		return {
 			restrict: "E",
 
@@ -15,7 +15,11 @@ angular.module('cp-multi-selector')
 				template: "=",
 				placeholder: '@',
 				onChange: "&",
-				icon: "@"
+				icon: "@",
+				customIconTemplate: '=',
+				dontShowPill: "@",
+				footerAction: "=",
+				removable: '@'
 			},
 
 			template: template,
@@ -28,15 +32,36 @@ angular.module('cp-multi-selector')
 				scope.showDialog = false;
 				scope.highlightedIndex = null;
 
+				$timeout(renderCustomIconTemplate, 200);
+
+				scope.$watch('customIconTemplate', renderCustomIconTemplate);
+
+				function renderCustomIconTemplate() {
+					if (scope.customIconTemplate) {
+						let customIconHtml = $compile(scope.customIconTemplate)(scope.$parent);
+						el.find(".cp-multi-selector__custom__icon__template").html(customIconHtml);
+						$compile(el.find('.cp-multi-selector__custom__icon__template').contents())(scope);
+					} else {
+						el.find('.cp-multi-selector__custom__icon__template').html('');
+					}
+				}
+
 				/**
 				 * Display the dialog. This is called when the main input is focused or clicked.
 				 */
 				scope.displayDialog = function() {
+
 					scope.showDialog = true;
 					// At the end of a timeout focus the input inside the dialog
 					setTimeout(function() {
 						el.find('.cp-multi-selector__dialog__input').focus();
 					}, 100);
+
+					if(scope.footerAction) {
+						let footerHtml = $compile(scope.footerAction)(scope.$parent);
+						el.find(".cp-multi-selector__footer").html(footerHtml);
+						$compile(el.find("cp-multi-selector__footer").contents())(scope);
+					}
 
 					positionDialog();
 				}
@@ -124,10 +149,10 @@ angular.module('cp-multi-selector')
 				 * grow vertically based upon the quantity of pills within it.
 				 */
 				function positionDialog() {
-					var position = el.position();
-					var windowWidth = $(window).width();
+					let positionLeft = el[0].getBoundingClientRect().left;
+					let windowWidth = $(window).width()
 
-					if(position.left + 298 >= windowWidth) {
+					if(positionLeft + 298 >= windowWidth) {
 						scope.dialogStyle.right = 0;
 					}
 

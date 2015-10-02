@@ -9,11 +9,14 @@
 </div>
 <!-- icon mode  -->
 <div ng-if="icon" class="cp-multi-selector__icon">
-	<div class="cp-multi-selector__pill +inline cps-white cps-bg-gray-10" ng-repeat="item in selectedItems">
+	<div ng-if="!dontShowPill" class="cp-multi-selector__pill +inline cps-white cps-bg-gray-10" ng-repeat="item in selectedItems">
 		<span style="vertical-align: top">{{item.first_name}} {{item.last_name}}</span> <i ng-click="removeItem(item)" class="cps-icon cps-icon-sm-close"></i>
 	</div>
 	<div class="cps-btn-icon" ng-click="displayDialog()">
-		<a href class="cps-link"><span class="cps-icon {{icon}}"></span></a>
+		<a href class="cps-link">
+			<span ng-if="!customIconTemplate" class="cps-icon {{icon}}"></span>
+			<div class="cp-multi-selector__custom__icon__template"></div>
+		</a>
 	</div>
 </div>
 <!-- select dialog  -->
@@ -23,4 +26,5 @@
 		<cp-multi-selector-item ng-class="{'+selected': isSelected(item), '+highlighted': ($index === highlightedIndex) }" ng-click="selectItem(item)" ng-repeat="item in filteredItems = (source | filter:userInput | limitTo:4)" template="itemTemplate">
 		</cp-multi-selector-item>
 	</div>
+	<div class="cp-multi-selector__footer"></div>
 </div>

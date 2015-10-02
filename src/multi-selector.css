@@ -56,8 +56,12 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 	width: 28px;
 	text-align: center;
 	font-weight: 600;
-	padding-top: .6rem;
+	padding-top: .4rem;
 	border-radius: 2px;
+}
+
+.cp-multi-selector-item__icon * {
+	opacity: .75;
 }
 
 .cp-multi-selector-item__title {
@@ -74,6 +78,14 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 	font-size: 2.6rem;
 	position: relative;
 	right: .2rem;
+}
+
+.cp-multi-selector-item__check:hover {
+	background-color: #E9E9E9;
+}
+
+.cp-multi-selector-item__check--move-up {
+	margin-top: -.5rem;
 }
 
 .cp-multi-selector__main-input.cps-form-control {
