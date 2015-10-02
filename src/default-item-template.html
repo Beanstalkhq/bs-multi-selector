@@ -4,6 +4,7 @@
 <div class="cp-multi-selector-item__title">
 	{{item.first_name}} {{item.last_name}}
 </div>
-<div class="cp-multi-selector-item__check">
-	<i class="cps-icon cps-icon-lg-check cps-info"></i>
+<div class="cp-multi-selector-item__check" ng-class="{ 'cp-multi-selector-item__check--move-up': removable }">
+	<i ng-if="!removable" class="cps-icon cps-icon-lg-check cps-info"></i>
+	<i ng-if="removable" ng-click="$event.stopPropagation(); removeItem(item);" class="cps-icon cps-icon-close"></i>
 </div>

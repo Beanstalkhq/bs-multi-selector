@@ -76,6 +76,14 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 	right: .2rem;
 }
 
+.cp-multi-selector-item__check:hover {
+	background-color: #E9E9E9;
+}
+
+.cp-multi-selector-item__check--move-up {
+	margin-top: -.5rem;
+}
+
 .cp-multi-selector__main-input.cps-form-control {
 	position: relative;
 	z-index: 2;
