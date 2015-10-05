@@ -1,8 +1,10 @@
 <div class="cp-multi-selector-item__icon cps-bg-medium-gray cps-gray-5">
-	<span>{{item.first_name[0]}}{{item.last_name[0]}}</span>
+	<span ng-if="item.initials">{{ item.initials }}</span>
+	<span ng-if="!item.initials">{{item.first_name[0]}}{{item.last_name[0]}}</span>
 </div>
 <div class="cp-multi-selector-item__title">
-	{{item.first_name}} {{item.last_name}}
+	<span ng-if="item.name">{{ item.name }}</span>
+	<span ng-if="!item.name">{{item.first_name}} {{item.last_name}}</span>
 </div>
 <div class="cp-multi-selector-item__check" ng-class="{ 'cp-multi-selector-item__check--move-up': removable }">
 	<i ng-if="!removable" class="cps-icon cps-icon-lg-check cps-info"></i>
