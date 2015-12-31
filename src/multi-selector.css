@@ -69,6 +69,10 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 	position: absolute;
 	left: 56px;
 	top: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 230px;
 }
 
 .cp-multi-selector-item__check {
