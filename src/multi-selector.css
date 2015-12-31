@@ -107,7 +107,11 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 
 .cp-multi-selector__pill.\+inline {
 	position: relative;
-	top: 3px;
+	font-weight: normal;
+	height: 32px;
+	top: 0px;
+	border-radius: 2px;
+	padding: 6px 8px;
 }
 
 .cp-multi-selector__pill .cps-icon {
