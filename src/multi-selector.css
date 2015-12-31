@@ -72,7 +72,7 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 230px;
+    width: 200px;
 }
 
 .cp-multi-selector-item__check {
