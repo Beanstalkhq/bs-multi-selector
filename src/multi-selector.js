@@ -32,8 +32,6 @@ angular.module('cp-multi-selector')
 				scope.showDialog = false;
 				scope.highlightedIndex = null;
 
-				$timeout(renderCustomIconTemplate, 200);
-
 				scope.$watch('customIconTemplate', renderCustomIconTemplate);
 
 				function renderCustomIconTemplate() {
