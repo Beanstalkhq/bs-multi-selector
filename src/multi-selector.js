@@ -48,16 +48,7 @@ angular.module('cp-multi-selector')
 				 * Change the items in selectedItems to have correct info whether or not they have a first and last name.
 				 */
 				scope.formatName = function() {
-					var itemNames = scope.selectedItems.map(function(item){
-						if (item.first_name && item.last_name) {
-							item.formattedName = item.first_name + " " + item.last_name;
-						}
-						else {
-							item.formattedName = item.name;
-						}
-						return item;
-					})
-					return itemNames;
+					return scope.selectedItems.map((item) => {item.formattedName = (item.first_name && item.last_name) ? `${item.first_name} ${item.last_name}` : item.name});
 				}
 
 				/**
