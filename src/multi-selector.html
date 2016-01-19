@@ -2,15 +2,15 @@
 <div class="cp-multi-selector" ng-if="!icon">
 	<input type="input" class="cp-multi-selector__hidden-input" ng-focus="displayDialog()">
 	<div ng-click="displayDialog()" type="text" class="cp-multi-selector__main-input cps-form-control">
-		<div class="cp-multi-selector__pill cps-white cps-bg-gray-10" ng-repeat="item in selectedItems">
-			{{item.first_name}} {{item.last_name}}<i ng-click="removeItem(item)" class="cps-icon cps-icon-sm-close"></i>
+		<div class="cp-multi-selector__pill cps-white cps-bg-gray-10" ng-repeat="item in formatName()">
+			{{item.formattedName}}<i ng-click="removeItem(item)" class="cps-icon cps-icon-sm-close"></i>
 		</div>
 	</div>
 </div>
 <!-- icon mode  -->
 <div ng-if="icon" class="cp-multi-selector__icon">
-	<div ng-if="!dontShowPill" class="cp-multi-selector__pill +inline cps-white cps-bg-gray-10" ng-repeat="item in selectedItems">
-		<span style="vertical-align: top">{{item.first_name}} {{item.last_name}}</span> <i ng-click="removeItem(item)" class="cps-icon cps-icon-sm-close"></i>
+	<div ng-if="!dontShowPill" class="cp-multi-selector__pill +inline cps-white cps-bg-gray-10" ng-repeat="item in formatName()">
+		<span style="vertical-align: top">{{item.formattedName}}</span><i ng-click="removeItem(item)" class="cps-icon cps-icon-sm-close"></i>
 	</div>
 	<div class="cps-btn-icon" ng-click="displayDialog()">
 		<a href class="cps-link">
