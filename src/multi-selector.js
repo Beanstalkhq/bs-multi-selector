@@ -50,18 +50,14 @@ angular.module('cp-multi-selector')
 				 */
 				function formatName() {
 					if(!scope.displayName){
-						if(scope.selectedItems){
-							scope.selectedItems.map((item) => {
+						function mapName(array) {
+							array.map((item) => {
 								item.display_name = item.name;
 								return item;
 							})
 						}
-						if(scope.source){
-							scope.source.map((item) => {
-								item.display_name = item.name;
-								return item;
-							})
-						}
+						if(scope.source) mapName(scope.source);
+						if(scope.selectedItems) mapName(scope.selectedItems);
 					}
 				}
 
