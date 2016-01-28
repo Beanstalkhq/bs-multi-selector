@@ -19,7 +19,8 @@ angular.module('cp-multi-selector')
 				customIconTemplate: '=',
 				dontShowPill: "@",
 				footerAction: "=",
-				removable: '@'
+				removable: '@',
+				displayName: '@'
 			},
 
 			template: template,
@@ -47,11 +48,21 @@ angular.module('cp-multi-selector')
 				/**
 				 * Change the items in selectedItems to have correct info whether or not they have a first and last name.
 				 */
-				scope.formatName = function() {
-					return scope.selectedItems.map((item) => {
-						item.formatted_name = (item.first_name && item.last_name) ? `${item.first_name} ${item.last_name}` : item.name;
-						return item;
-					})
+				function formatName() {
+					if(!scope.displayName){
+						if(scope.selectedItems){
+							scope.selectedItems.map((item) => {
+								item.display_name = item.name;
+								return item;
+							})
+						}
+						if(scope.source){
+							scope.source.map((item) => {
+								item.display_name = item.name;
+								return item;
+							})
+						}
+					}
 				}
 
 				/**
@@ -80,6 +91,14 @@ angular.module('cp-multi-selector')
 				scope.$watch('template', function(value) {
 					scope.itemTemplate = value || defaultItemTemplate;
 				});
+
+				scope.$watch('source', function(value) {
+					formatName();
+				});
+
+				scope.$watch('selectedItems', function(value) {
+					formatName();
+				})
 
 				/**
 				 * Reset the highlighted index to null when the user inputs text.

@@ -3,8 +3,7 @@
 	<span ng-if="!item.initials">{{item.first_name[0]}}{{item.last_name[0]}}</span>
 </div>
 <div class="cp-multi-selector-item__title">
-	<span ng-if="item.name">{{ item.name }}</span>
-	<span ng-if="!item.name">{{item.first_name}} {{item.last_name}}</span>
+	{{item.display_name}}
 </div>
 <div class="cp-multi-selector-item__check" ng-class="{ 'cp-multi-selector-item__check--move-up': removable }">
 	<i ng-if="!removable" class="cps-icon cps-icon-lg-check cps-info"></i>
