@@ -35,11 +35,11 @@ module.exports = function(config) {
 			},
 			'node_modules/canopy-styleguide/build/styleguide.css',
 			'node_modules/jquery/dist/jquery.js',
-      'node_modules/angular/angular.js',
-			'node_modules/lodash/index.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-      'build/*.js',
-      'src/*spec.js'
+			'node_modules/angular/angular.js',
+			'node_modules/lodash/lodash.js',
+			'node_modules/angular-mocks/angular-mocks.js',
+			'build/*.js',
+			'src/*spec.js'
     ],
 
 
