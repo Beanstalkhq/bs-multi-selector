@@ -5,6 +5,7 @@
 		<div class="cp-multi-selector__pill cps-white cps-bg-gray-10" ng-repeat="item in selectedItems | orderBy: 'display_name'">
 			{{item.display_name}}<i ng-click="removeItem(item)" class="cps-icon cps-icon-sm-close"></i>
 		</div>
+		<span ng-show="inputPlaceholder && (!selectedItems || !selectedItems.length)" class="cp-multi-selector__placeholder">{{inputPlaceholder}}</span>
 	</div>
 </div>
 <!-- icon mode  -->
