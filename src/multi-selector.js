@@ -14,6 +14,7 @@ angular.module('cp-multi-selector')
 				selectedItems: '=',
 				template: "=",
 				placeholder: '@',
+				inputPlaceholder: '@',
 				onChange: "&",
 				icon: "@",
 				customIconTemplate: '=',
