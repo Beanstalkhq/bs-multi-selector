@@ -20,7 +20,7 @@ cp-multi-selector {
 	top: 33px;
 	min-width: 298px;
 	width: auto;
-	border-radius: 2px;
+	border-radius: 5px;
 }
 
 .cp-multi-selector__dialog__items {
@@ -57,7 +57,7 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 	text-align: center;
 	font-weight: 600;
 	padding-top: .4rem;
-	border-radius: 2px;
+	border-radius: 5px;
 }
 
 .cp-multi-selector-item__icon * {
@@ -118,7 +118,7 @@ cp-multi-selector-item.\+selected .cp-multi-selector-item__check {
 	font-weight: normal;
 	height: 32px;
 	top: 0px;
-	border-radius: 2px;
+	border-radius: 5px;
 	padding: 6px 8px;
 }
 
