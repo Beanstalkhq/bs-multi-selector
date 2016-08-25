@@ -29,3 +29,5 @@ node_modules
 
 # JetBrains IDE config folder
 .idea/
+
+build/

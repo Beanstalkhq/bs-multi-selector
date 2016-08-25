@@ -34,12 +34,12 @@ module.exports = function(config) {
 				served: true
 			},
 			'node_modules/canopy-styleguide/build/styleguide.css',
-			'node_modules/jquery/dist/jquery.js',
-			'node_modules/angular/angular.js',
-			'node_modules/lodash/lodash.js',
+			'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js',
+			'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js',
+			'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.0/lodash.js',
 			'node_modules/angular-mocks/angular-mocks.js',
-			'build/*.js',
-			'src/*spec.js'
+			'src/index.js',
+			'src/*spec.js',
     ],
 
 
@@ -52,7 +52,33 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+		'src/index.js': ['webpack'],
     },
+
+
+	webpack: {
+		output: {
+			filename: 'cp-multi-selector.js',
+		},
+		module: {
+			loaders: [{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader'
+			}, {
+				test: /\.css$/,
+				loader: "style-loader!css-loader!autoprefixer"
+			}, {
+				test: /\.html$/,
+				loader: "html-loader"
+			}]
+		},
+		externals: {
+			'angular': 'angular',
+			'lodash': '_',
+			'jquery': '$',
+		}
+	},
 
 
     // test results reporter to use
