@@ -9,7 +9,9 @@ module.exports = {
 	entry: "./src/index.js",
 	output: {
 		path: './build',
-		filename: name + '.js'
+		filename: name + '.js',
+		library: name,
+		libraryTarget: 'commonjs',
 	},
 	module: {
 		loaders: [{
@@ -25,16 +27,16 @@ module.exports = {
 		}]
 	},
 	externals: {
-		"jquery": "$",
-		"angular": "angular",
-		"lodash": "_"
+		'angular': 'angular',
+		'lodash': '_',
+		'jquery': '$',
 	},
 	plugins: [
 		new ngminPlugin(),
 		new webpack.BannerPlugin("\
 " + name + "\n\
 author: Bret Little\n\
-copyright: 2015\n\
+copyright: 2016\n\
 license: MIT\n\
 version: " + version)
 	]
