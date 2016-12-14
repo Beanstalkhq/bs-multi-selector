@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var $ = require('jquery');
 
 var template = require('./multi-selector.html');
 var defaultItemTemplate = require('./default-item-template.html');
@@ -11,6 +12,7 @@ angular.module('cp-multi-selector')
 
 			scope: {
 				source: '=',
+				searchField: '@',
 				selectedItems: '=',
 				template: "=",
 				placeholder: '@',
@@ -30,7 +32,7 @@ angular.module('cp-multi-selector')
 				var isSingle = _.has(attr, 'single');
 				var id = _.uniqueId(); // This is a unique id associated with this component instance and used to namespace dom events.
 				scope.dialogStyle = {};
-
+				scope.userInput = scope.searchField ? {} : "";
 				scope.showDialog = false;
 				scope.highlightedIndex = null;
 

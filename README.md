@@ -41,5 +41,7 @@ $scope.selectedItems = [];
 Optionally pass a string "template" to the directive which will be used for a custom list element in the drop down window.
 [The default template](https://github.com/canopytax/cp-multi-selector/blob/master/src/default-item-template.html)
 
+Optionally pass a string "search-field" to the directive which will be used to search the given property.
+
 ## Demo
 http://canopytax.github.io/cp-multi-selector/
