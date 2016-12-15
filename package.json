@@ -1,6 +1,6 @@
 {
   "name": "cp-multi-selector",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Component Description",
   "main": "build/cp-multi-selector.js",
   "scripts": {
