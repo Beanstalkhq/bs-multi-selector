@@ -28,8 +28,8 @@ module.exports = {
 	},
 	externals: {
 		'angular': 'angular',
-		'lodash': '_',
-		'jquery': '$',
+		'jquery': 'jquery',
+		'lodash': 'lodash'
 	},
 	plugins: [
 		new ngminPlugin(),

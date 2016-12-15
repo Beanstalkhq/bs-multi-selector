@@ -22,7 +22,9 @@
 </div>
 <!-- select dialog  -->
 <div class="cp-multi-selector__dialog depth-z2" ng-show="showDialog" ng-style="dialogStyle">
-	<input type="text" ng-keydown="keyDown($event)" class="cps-form-control cp-multi-selector__dialog__input" ng-model="userInput" placeholder="{{placeholder}}"/>
+	<input ng-if="!searchField" type="text" ng-keydown="keyDown($event)" class="cps-form-control cp-multi-selector__dialog__input" ng-model="userInput" placeholder="{{placeholder}}"/>
+	<input ng-if="searchField" type="text" ng-keydown="keyDown($event)" class="cps-form-control cp-multi-selector__dialog__input" ng-model="userInput[searchField]" placeholder="{{placeholder}}"/>
+
 	<div class="cp-multi-selector__dialog__items">
 		<cp-multi-selector-item ng-class="{'+selected': isSelected(item), '+highlighted': ($index === highlightedIndex) }" ng-click="selectItem(item)" ng-repeat="item in filteredItems = (source | filter:userInput | limitTo:4 | orderBy: 'display_name')" template="itemTemplate">
 		</cp-multi-selector-item>
