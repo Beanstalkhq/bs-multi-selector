@@ -196,7 +196,7 @@ angular.module('cp-multi-selector')
 				 */
 				$('body').on('click.cpmultiselector' + id, function(e) {
 					if(!$(e.target).closest(el).length) {
-						scope.$apply(function() {
+						safeApply(scope, function() {
 							scope.showDialog = false;
 						})
 					}
@@ -209,11 +209,9 @@ angular.module('cp-multi-selector')
 
 				/** Trigger the on change handler **/
 				function triggerChange() {
-					$timeout(function() {
-						scope.$apply(function() {
-							scope.onChange();
-						});
-					}, null, false);
+					safeApply(scope, function() {
+						scope.onChange();
+					});
 				}
 			}
 		}
@@ -248,3 +246,13 @@ angular.module('cp-multi-selector')
 			}
 		}
 	}]);
+
+	function safeApply(scope, fn) {
+		var phase = scope.$root.$$phase;
+
+		if (phase === '$apply' || phase === '$digest') {
+			fn();
+		} else {
+			scope.$apply(fn);
+		}
+	}
