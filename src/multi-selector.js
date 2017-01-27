@@ -209,9 +209,11 @@ angular.module('cp-multi-selector')
 
 				/** Trigger the on change handler **/
 				function triggerChange() {
-					safeApply(scope, function() {
-						scope.onChange();
-					});
+					$timeout(function() {
+						safeApply(scope, function() {
+							scope.onChange();
+						});
+					}, null, false);
 				}
 			}
 		}
