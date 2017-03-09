@@ -55,7 +55,9 @@ angular.module('cp-multi-selector')
 					if(!scope.displayName){
 						function mapName(array) {
 							array.map((item) => {
-								item.display_name = item.name;
+								if (item) {
+									item.display_name = item.name;
+								}
 								return item;
 							})
 						}
