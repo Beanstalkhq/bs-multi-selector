@@ -23,7 +23,8 @@ angular.module('cp-multi-selector')
 				dontShowPill: "@",
 				footerAction: "=",
 				removable: '@',
-				displayName: '@'
+				displayName: '@',
+				userInput: "="
 			},
 
 			template: template,
