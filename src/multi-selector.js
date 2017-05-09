@@ -24,7 +24,7 @@ angular.module('cp-multi-selector')
 				footerAction: "=",
 				removable: '@',
 				displayName: '@',
-				userInput: "="
+				userInput: "<?"
 			},
 
 			template: template,
@@ -33,7 +33,7 @@ angular.module('cp-multi-selector')
 				var isSingle = _.has(attr, 'single');
 				var id = _.uniqueId(); // This is a unique id associated with this component instance and used to namespace dom events.
 				scope.dialogStyle = {};
-				scope.userInput = scope.searchField ? {} : "";
+				scope.userInput = scope.userInput ? scope.userInput : scope.searchField ? {} : "";
 				scope.showDialog = false;
 				scope.highlightedIndex = null;
 
