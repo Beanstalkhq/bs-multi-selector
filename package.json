@@ -42,7 +42,7 @@
     "lodash": ">=4"
   },
   "optionalDependencies": {
-    "canopy-styleguide": "^5.2.0"
+    "canopy-styleguide": "latest"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
