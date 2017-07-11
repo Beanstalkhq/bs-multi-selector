@@ -1,6 +1,6 @@
 {
   "name": "cp-multi-selector",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Component Description",
   "main": "build/cp-multi-selector.js",
   "scripts": {
@@ -42,7 +42,7 @@
     "lodash": ">=4"
   },
   "optionalDependencies": {
-    "canopy-styleguide": "^5.2.0"
+    "canopy-styleguide": "latest"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
